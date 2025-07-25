@@ -17,7 +17,7 @@ const facts = [
 app.get('/', (req, res) => {
   res.send(`<h1>🚀 Welcome to the DevOps Facts API</h1>
             <p>Try <code>/api/fact</code> to get a random DevOps fact!</p>
-            <p><strong>New commit deployed successfully!</strong></p>`);
+            <p><strong>New commit deployed successfully!!!</strong></p>`);
 });
 
 app.get('/api/fact', (req, res) => {
