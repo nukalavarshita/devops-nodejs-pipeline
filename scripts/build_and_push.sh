@@ -1,13 +1,22 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
 
-GIT_COMMIT=$(git rev-parse --short HEAD)
-IMAGE="varshitanukala/devops-pipeline:$GIT_COMMIT"
+# Exit immediately if a command fails
+set -e
 
-echo "📦 Building Docker image: $IMAGE"
-docker build -t $IMAGE myapp/
+# Variables
+IMAGE_NAME="varshitanukala/nodeapp"
+TAG="latest"
 
-echo "📤 Pushing Docker image to DockerHub..."
-docker push $IMAGE
+# Login to DockerHub
+echo "Logging in to DockerHub..."
+echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
-echo "✅ Docker image pushed successfully!"
+# Build Docker image
+echo "Building Docker image..."
+docker build -t $IMAGE_NAME:$TAG myapp/
+
+# Push Docker image
+echo "Pushing Docker image to DockerHub..."
+docker push $IMAGE_NAME:$TAG
+
+echo "Docker image pushed successfully!"

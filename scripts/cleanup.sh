@@ -1,13 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
 echo "🧹 Starting Docker cleanup..."
 
-echo "🗑️ Removing dangling Docker images..."
-docker image prune -f
+echo "🔍 Removing dangling Docker images..."
+docker image prune -f --filter "dangling=true"
 
-echo "🚽 Pruning unused containers and networks..."
-docker system prune --volumes -f
+echo "🔍 Pruning unused Docker containers..."
+docker container prune -f
+
+echo "🔍 Pruning unused Docker networks..."
+docker network prune -f
 
 echo "✅ Docker cleanup completed successfully!"
-
