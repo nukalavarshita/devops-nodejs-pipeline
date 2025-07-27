@@ -350,18 +350,6 @@ chmod +x scripts/cleanup.sh
 
 ---
 
-## Pipeline Execution Screenshots
-
-You can include the following screenshots in the `assets/` folder of your repo:
-
-- Jenkins pipeline view
-- Terraform provisioning log
-- Ansible deployment output
-- Final EC2 instance running the app
-- App running via public IP in browser
-
----
-
 ## Final Deliverables
 
 - **GitHub Repo**: [https://github.com/nukalavarshita/devops-nodejs-pipeline](https://github.com/nukalavarshita/devops-nodejs-pipeline)
