@@ -23,6 +23,8 @@ This project showcases an end-to-end CI/CD pipeline to build, test, provision, c
 
 The following diagram outlines the full flow of the CI/CD pipeline:
 
+<img width="1772" height="602" alt="image" src="https://github.com/user-attachments/assets/468dbda8-b6dc-4da9-916e-99183269c47e" />
+
 ---
 
 ## Branching Strategy
@@ -60,6 +62,11 @@ git checkout main
 git merge develop
 
 ```
+<img width="2878" height="1714" alt="image" src="https://github.com/user-attachments/assets/6aa3c737-3abb-47d2-98a3-77b39fcff6fe" />
+
+<img width="2878" height="1714" alt="image" src="https://github.com/user-attachments/assets/7c03cb13-ae30-47ce-8b79-9bb188d9d19a" />
+
+<img width="2878" height="1714" alt="image" src="https://github.com/user-attachments/assets/770cd5b7-cd14-4bb6-90bf-c7d8edece47b" />
 
 ---
 
