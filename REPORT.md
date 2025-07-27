@@ -227,6 +227,15 @@ terraform apply -auto-approve
 ansible-playbook -i ansible/hosts.ini ansible/deploy.yml
 ```
 
+<img width="1646" height="1162" alt="image" src="https://github.com/user-attachments/assets/eb237c86-d852-40e2-948a-a4a3386d417e" />
+
+
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/907e0e71-cb3f-4dba-97f1-b0d9f2937c5f" />
+
+
+<img width="2880" height="1714" alt="image" src="https://github.com/user-attachments/assets/02c28710-d3bb-4d7b-9bb1-f76b813bac88" />
+
+
 ---
 
 ## Jenkins CI/CD Pipeline
@@ -298,6 +307,9 @@ pipeline {
 ### Outcome:
 - App gets built, pushed to DockerHub, EC2 infra provisioned, container deployed, and app goes live.
 
+
+<img width="2880" height="1715" alt="image" src="https://github.com/user-attachments/assets/3110d2fa-5999-4891-8c52-31a1ebf50650" />
+
 ---
 
 ## Shell Scripting & Cleanup
@@ -332,6 +344,9 @@ echo "Docker cleanup completed successfully!"
 chmod +x scripts/cleanup.sh
 ./scripts/cleanup.sh
 ```
+
+<img width="1646" height="1162" alt="image" src="https://github.com/user-attachments/assets/c2fe5afd-98d4-4381-99f3-d965f41b8fb1" />
+
 
 ---
 
