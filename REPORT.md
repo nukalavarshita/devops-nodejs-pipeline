@@ -150,6 +150,10 @@ terraform apply -auto-approve
 - `region`
 - `instance_type`
 
+<img width="1394" height="1022" alt="image" src="https://github.com/user-attachments/assets/3a005511-1ed2-4aa4-92ef-3b8a07c16957" />
+
+<img width="2880" height="1616" alt="image" src="https://github.com/user-attachments/assets/9b14b175-b8c5-4d3e-b76a-ab53c0ac30ea" />
+
 
 ---
 
