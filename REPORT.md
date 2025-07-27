@@ -92,6 +92,11 @@ EXPOSE 3000
 CMD ["node", "src/index.js"]
 
 ```
+<img width="2544" height="1444" alt="image" src="https://github.com/user-attachments/assets/c9f3770b-3b53-4b10-8845-8fafdd22aa18" />
+
+
+<img width="2764" height="1664" alt="image" src="https://github.com/user-attachments/assets/2e20f06e-5311-434e-995f-1ae35b32b11b" />
+
 
 **Script: `scripts/build_and_push.sh`**
 
