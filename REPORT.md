@@ -340,7 +340,6 @@ You can include the following screenshots in the `assets/` folder of your repo:
 - `deploy.yml` and `hosts.ini` in `ansible/`
 - `Jenkinsfile` for full pipeline
 - `REPORT.md` with architecture diagram
-- Screenshots in `assets/`
 
 ---
 
