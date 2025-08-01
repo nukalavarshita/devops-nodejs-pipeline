@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        // Nothing here because withCredentials injects variables only within steps block
+    }
+
     stages {
         stage('Checkout Code') {
             steps {
@@ -10,7 +14,7 @@ pipeline {
 
         stage('Build and Push Docker Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'varshitanukala', usernameVariable: 'varshitanukala', passwordVariable: 'Varshi@808')]) {
+                withCredentials([usernamePassword(credentialsId: 'varshitanukala', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                         chmod +x scripts/build_and_push.sh
