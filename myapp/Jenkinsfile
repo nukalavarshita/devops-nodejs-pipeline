@@ -1,20 +1,16 @@
 pipeline {
     agent any
 
-    environment {
-        // Nothing here because withCredentials injects variables only within steps block
-    }
-
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'develop', url: 'https://github.com/nukalavarshita/devops-nodejs-pipeline.git'
+                git branch: 'main', url: 'https://github.com/nukalavarshita/devops-nodejs-pipeline.git'
             }
         }
 
         stage('Build and Push Docker Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'varshitanukala', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds-id', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
                         chmod +x scripts/build_and_push.sh
@@ -51,3 +47,65 @@ pipeline {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+// pipeline {
+//     agent any
+
+//     environment {
+//         // Nothing here because withCredentials injects variables only within steps block
+//     }
+
+//     stages {
+//         stage('Checkout Code') {
+//             steps {
+//                 git branch: 'develop', url: 'https://github.com/nukalavarshita/devops-nodejs-pipeline.git'
+//             }
+//         }
+
+//         stage('Build and Push Docker Image') {
+//             steps {
+//                 withCredentials([usernamePassword(credentialsId: 'varshitanukala', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+//                     sh '''
+//                         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+//                         chmod +x scripts/build_and_push.sh
+//                         ./scripts/build_and_push.sh
+//                     '''
+//                 }
+//             }
+//         }
+
+//         stage('Provision Infrastructure with Terraform') {
+//             steps {
+//                 dir('infra') {
+//                     sh '''
+//                         terraform init
+//                         terraform apply -auto-approve
+//                     '''
+//                 }
+//             }
+//         }
+
+//         stage('Deploy App with Ansible') {
+//             steps {
+//                 sh 'ansible-playbook -i ansible/hosts.ini ansible/deploy.yml'
+//             }
+//         }
+//     }
+
+//     post {
+//         success {
+//             echo '✅ Deployment pipeline completed successfully!'
+//         }
+//         failure {
+//             echo '❌ Pipeline failed. Check the logs for details.'
+//         }
+//     }
+// }
