@@ -42,3 +42,8 @@ pipeline {
         success {
             echo '✅ Deployment pipeline completed successfully!'
         }
+        failure {
+            echo '❌ Pipeline failed. Check the logs for details.'
+        }
+    }
+}
