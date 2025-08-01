@@ -9,7 +9,7 @@ TAG="latest"
 
 # Login to DockerHub
 echo "Logging in to DockerHub..."
-echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+echo "$DOCKERHUB_PASSWORD" | docker login -u "$varshitanukala" --password-stdin
 
 # Build Docker image
 echo "Building Docker image..."
