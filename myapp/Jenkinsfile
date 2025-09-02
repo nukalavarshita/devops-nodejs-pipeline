@@ -1,26 +1,26 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('varshitanukala')
+    }
+
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/nukalavarshita/devops-nodejs-pipeline.git'
+                git branch: 'develop', url: 'https://github.com/nukalavarshita/devops-nodejs-pipeline.git'
             }
         }
 
         stage('Build and Push Docker Image') {
             steps {
-                sh '''
-                    export DOCKERHUB_USERNAME=varshitanukala
-                    export DOCKERHUB_PASSWORD=Varshi@808
-
-                    echo "Logging into DockerHub..."
-                    echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-
-                    echo "Running build and push script..."
-                    chmod +x scripts/build_and_push.sh
-                    ./scripts/build_and_push.sh
-                '''
+                withCredentials([usernamePassword(credentialsId: 'varshitanukala', usernameVariable: 'varshitanukala', passwordVariable: 'Varshi@808')]) {
+                    sh '''
+                        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+                        chmod +x scripts/build_and_push.sh
+                        ./scripts/build_and_push.sh
+                    '''
+                }
             }
         }
 
